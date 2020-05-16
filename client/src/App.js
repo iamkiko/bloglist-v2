@@ -82,7 +82,10 @@ const App = props => {
   //setNotification function
   const notify = (message, type = "success") => {
     props.setNotification({ message, type })
-    setTimeout(() => props.setNotification({ message: null, type: null }), 5000)
+    setTimeout(
+      () => props.setNotification({ message: null, type: null }),
+      500000,
+    )
   }
 
   //login logic

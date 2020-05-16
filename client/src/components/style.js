@@ -2,7 +2,6 @@ import styled, { createGlobalStyle, css } from "styled-components"
 import { Link } from "react-router-dom"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
-import TextareaAutosize from "@material-ui/core/TextareaAutosize"
 
 createGlobalStyle`
       @import url('https://fonts.googleapis.com/css?family=Ubuntu');
