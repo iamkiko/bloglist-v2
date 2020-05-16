@@ -9,9 +9,9 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
+import { UserContainer } from "./style"
 
 const UserList = props => {
-  console.log("userlist's props.users: ", props.users)
   const displayUsers = () => {
     return props.users.map(user => (
       <TableRow key={user.id}>
@@ -23,11 +23,11 @@ const UserList = props => {
     ))
   }
   return (
-    <div>
+    <UserContainer>
       <Typography variant="h4" gutterBottom>
         Registered Users
       </Typography>
-      <Paper>
+      <UserContainer>
         <Table>
           <TableHead>
             <TableRow>
@@ -41,8 +41,8 @@ const UserList = props => {
           </TableHead>
           <TableBody>{displayUsers()}</TableBody>
         </Table>
-      </Paper>
-    </div>
+      </UserContainer>
+    </UserContainer>
   )
 }
 

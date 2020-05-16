@@ -1,28 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
 import { logout } from "../reducers/loginReducer"
 
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import { makeStyles } from "@material-ui/core/styles"
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}))
+import { NavBar, NavLink, LoggedIn, LogOutButton, ButtonSpan } from "./style"
+import { Container } from "@material-ui/core"
 
 const Navigation = props => {
-  const classes = useStyles()
-
-  const navStyle = {
-    backgroundColor: "#F8F8F8",
-    padding: ".5rem",
-  }
-
   const handleLogout = () => {
     props.logout()
     // blogService.destroyToken()
@@ -30,27 +15,31 @@ const Navigation = props => {
   }
 
   return (
-    <div style={navStyle}>
-      <Typography>
-        <Link to="/">Blogs</Link> <Link to="/Users">Users</Link>
-        {" - "}
+    <Container fixed>
+      <NavBar>
+        <div>
+          <NavLink to="/">Blogs</NavLink> {" - "}{" "}
+          <NavLink to="/Users"> Users</NavLink>
+        </div>
         {props.currentUser && (
-          <span>
-            {props.currentUser.name} logged in{" "}
-            <Button
+          <>
+            <div>
+              <LoggedIn>{props.currentUser.name}</LoggedIn> is currently logged
+              in
+            </div>
+            <LogOutButton
               variant="contained"
               color="secondary"
-              className={classes.button}
               size="small"
               onClick={handleLogout}
               data-cy="logout"
             >
               Log out
-            </Button>
-          </span>
+            </LogOutButton>
+          </>
         )}
-      </Typography>
-    </div>
+      </NavBar>
+    </Container>
   )
 }
 

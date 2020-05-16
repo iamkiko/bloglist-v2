@@ -1,18 +1,7 @@
 import React, { useState, useImperativeHandle } from "react"
-import Button from "@material-ui/core/Button"
-import { makeStyles } from "@material-ui/core/styles"
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: "none",
-  },
-}))
-
+// import Button from "@material-ui/core/Button"
+import { BlogDiv, CreateButton, CancelButton } from "./style"
 const Togglable = React.forwardRef((props, ref) => {
-  const classes = useStyles()
   const [visible, setVisible] = useState(false)
 
   const hideWhenVisible = { display: visible ? "none" : "" }
@@ -29,31 +18,28 @@ const Togglable = React.forwardRef((props, ref) => {
   })
 
   return (
-    <div>
+    <BlogDiv>
       <div style={hideWhenVisible}>
-        <Button
+        <CreateButton
           variant="contained"
-          color="primary"
           size="small"
-          className={classes.button}
           onClick={toggleVisibility}
         >
           {props.buttonLabel}
-        </Button>
+        </CreateButton>
       </div>
       <div style={showWhenVisible}>
         {props.children}
-        <Button
+        <CancelButton
           variant="contained"
           color="secondary"
           size="small"
-          className={classes.button}
           onClick={toggleVisibility}
         >
           Cancel
-        </Button>
+        </CancelButton>
       </div>
-    </div>
+    </BlogDiv>
   )
 })
 

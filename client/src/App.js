@@ -20,14 +20,22 @@ import { initializeBlogs, createBlog } from "./reducers/blogReducer"
 import { setUser, setToken } from "./reducers/loginReducer"
 import { initializeUsers } from "./reducers/userReducer"
 
+import {
+  CenteredBox,
+  Input,
+  LoginInstructions,
+  ActionButton,
+  LoginButtonSpan,
+  BlogHeader,
+} from "../src/components/style"
 import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
-import Button from "@material-ui/core/Button"
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
+    alignContent: "center",
   },
   input: {
     display: "none",
@@ -74,7 +82,10 @@ const App = props => {
   //setNotification function
   const notify = (message, type = "success") => {
     props.setNotification({ message, type })
-    setTimeout(() => props.setNotification({ message: null, type: null }), 5000)
+    setTimeout(
+      () => props.setNotification({ message: null, type: null }),
+      500000,
+    )
   }
 
   //login logic
@@ -133,36 +144,50 @@ const App = props => {
   const specificBlog = id => props.blogs.find(blog => blog.id === id)
 
   const loginPage = () => (
-    <div>
+    <CenteredBox>
       <Typography variant="h4" gutterBottom>
-        Log in to application
+        Log in to view the blog list!
       </Typography>
 
       <Notification />
 
       <form onSubmit={handleLogin}>
-        <Typography variant="subtitle1" gutterBottom>
+        <Typography variant="h6" gutterBottom>
           <div>
-            Username
-            <input id="username" {...username} reset={null} />
+            Username:
+            <Input id="username" {...username} reset={null} />
           </div>
           <div>
-            Password
-            <input id="password" {...password} reset={null} />
+            Password:
+            <Input id="password" {...password} reset={null} />
           </div>
-          <Button
+        </Typography>
+        <LoginButtonSpan>
+          <ActionButton
             variant="contained"
-            color="primary"
-            className={classes.button}
+            // color="primary"
+            // className={classes.button}
             size="small"
             type="submit"
             data-cy="login"
           >
             Log me in!
-          </Button>
-        </Typography>
+          </ActionButton>
+        </LoginButtonSpan>
       </form>
-    </div>
+      <LoginInstructions>
+        {" "}
+        <Typography variant="h5" gutterBottom>
+          You can test it using the following details:
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Username: Guest
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Password: guest
+        </Typography>
+      </LoginInstructions>
+    </CenteredBox>
   )
 
   //to go into Login.js
@@ -176,17 +201,18 @@ const App = props => {
         <Navigation />
         <Notification />
         <Container fixed>
-          <Typography variant="h3" gutterBottom>
-            Blogs
-          </Typography>
-
+          <BlogHeader>
+            <Typography variant="h3" gutterBottom>
+              Blog Directory
+            </Typography>
+          </BlogHeader>
           <div>
             <Route
               exact
               path="/"
               render={() => (
                 <div>
-                  <Togglable buttonLabel="create new" ref={newBlogRef}>
+                  <Togglable buttonLabel="Add a new blog" ref={newBlogRef}>
                     <NewBlog
                       addBlog={addBlog}
                       title={title}
@@ -203,8 +229,6 @@ const App = props => {
                 </div>
               )}
             />
-            {/* <Blog/> */}
-            {/* {displayBlogs()} */}
           </div>
         </Container>
         <Route exact path="/users" render={() => <UserList />} />
