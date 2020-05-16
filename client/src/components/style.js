@@ -183,3 +183,26 @@ export const LoggedIn = styled.span`
   color: #147d64;
   font-weight: bold;
 `
+
+//Users
+
+export const UserContainer = styled.div`
+  height: 32px;
+  border-radius: 5px;
+  padding: 10px 10px 0 30px;
+  width: auto;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-family: Ubuntu, sans-serif;
+`
+
+export const UserPageContainer = styled.div`
+  height: 32px;
+  border-radius: 5px;
+  margin-left: 4rem;
+  padding: 10px 10px 0 30px;
+  width: auto;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-family: Ubuntu, sans-serif;
+`

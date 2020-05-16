@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import Typography from "@material-ui/core/Typography"
+import { CommentContainer, UserPageContainer, StyledLink } from "./style"
 
 const User = ({ user }) => {
   //conditional to check if user exists?
@@ -11,23 +12,21 @@ const User = ({ user }) => {
   }
 
   return (
-    <div>
+    <UserPageContainer>
       <Typography variant="h3" gutterBottom>
         {user.name}{" "}
       </Typography>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom mb={2}>
         has added the following blogs:{" "}
       </Typography>
-      <ul>
-        {user.blogs.map(blog => (
-          <li key={blog.id}>
-            <Link to={`/blogs/${blog.id}`}>
-              <Typography>{blog.title}</Typography>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {user.blogs.map(blog => (
+        <CommentContainer key={blog.id}>
+          <StyledLink to={`/blogs/${blog.id}`}>
+            <Typography>{blog.title}</Typography>
+          </StyledLink>
+        </CommentContainer>
+      ))}
+    </UserPageContainer>
   )
 }
 
