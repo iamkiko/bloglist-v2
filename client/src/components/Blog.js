@@ -6,11 +6,12 @@ import PropTypes from "prop-types"
 import { likeBlog, deleteBlog, addComment } from "../reducers/blogReducer"
 import { setNotification } from "../reducers/notificationReducer"
 
+import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
-import { makeStyles } from "@material-ui/core/styles"
+// import TextareaAutosize from "@material-ui/core/TextareaAutosize"
 import Button from "@material-ui/core/Button"
-import { ActionButton } from "./style"
+import { CommentButton, TextAreaInput } from "./style"
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     display: "none",
+  },
+  Typography: {
+    paddingTop: "1rem",
   },
 }))
 
@@ -97,13 +101,15 @@ const Blog = props => {
             Comments
           </Typography>
           <form onSubmit={newComment}>
-            <input
+            <TextAreaInput
+              aria-label="minimum height"
+              rowsMin={3}
               id="comment"
               type="text"
               value={formComment}
               onChange={handleForm}
             />
-            <ActionButton
+            <CommentButton
               variant="contained"
               color="primary"
               className={classes.button}
@@ -112,7 +118,7 @@ const Blog = props => {
               data-cy="commentbutton"
             >
               Add Comment
-            </ActionButton>
+            </CommentButton>
           </form>
           <ul>
             {blog.comments.map(comment => (

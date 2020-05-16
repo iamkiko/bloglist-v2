@@ -2,6 +2,7 @@ import styled, { createGlobalStyle, css } from "styled-components"
 import { Link } from "react-router-dom"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
+import TextareaAutosize from "@material-ui/core/TextareaAutosize"
 
 createGlobalStyle`
       @import url('https://fonts.googleapis.com/css?family=Ubuntu');
@@ -80,6 +81,15 @@ export const CreateButton = styled(Button)`
   }
 `
 
+export const CommentButton = styled(Button)`
+  background-color: #57ae5b;
+  color: #fff;
+  margin-bottom: 2rem;
+
+  &:hover {
+    background-color: #207227;
+  }
+`
 export const CancelButton = styled(Button)`
   margin-top: 0.5rem;
 `
@@ -108,6 +118,35 @@ export const ParentContainer = styled(Container)`
 `
 export const StyledLink = styled(Link)`
   color: #0a558c;
+`
+
+//Individual blogs
+// export const TextArea = styled(TextareaAutosize)`
+//   && {
+//     padding: 0.5em;
+//     margin: 0.5em;
+//     width: 200px;
+//     height: 100px;
+//     color: #0b4f71;
+//     background: #ebf8ff;
+//     border: none;
+//     border-radius: 3px;
+//   }
+// `
+
+export const TextAreaInput = styled.textarea`
+  border: none;
+  outline: none;
+  border-radius: 4px 4px 4px 4px;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px 0 rgba(65, 65, 96, 0.15);
+  width: 40%;
+  height: 40%;
+  resize: none;
+  overflow: auto;
+  padding: 10px 15px;
+  font-size: 15px;
+  color: #0b4f71;
 `
 
 //Nav styling
