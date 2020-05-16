@@ -11,7 +11,7 @@ import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 // import TextareaAutosize from "@material-ui/core/TextareaAutosize"
 import Button from "@material-ui/core/Button"
-import { CommentButton, TextAreaInput } from "./style"
+import { CommentButton, TextAreaInput, CommentContainer } from "./style"
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -67,6 +67,7 @@ const Blog = props => {
     }
   }
 
+  console.log("props", props)
   const details = () => (
     <Container fixed>
       <div className="title">
@@ -120,13 +121,11 @@ const Blog = props => {
               Add Comment
             </CommentButton>
           </form>
-          <ul>
-            {blog.comments.map(comment => (
-              <li key={comment.id}>
-                <Typography>{comment.comment}</Typography>
-              </li>
-            ))}
-          </ul>
+          {blog.comments.map(comment => (
+            <CommentContainer key={comment.id}>
+              <Typography>Comment: {comment.comment}</Typography>
+            </CommentContainer>
+          ))}
         </div>
         <div>{userCanDelete()}</div>
       </div>

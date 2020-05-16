@@ -121,19 +121,17 @@ export const StyledLink = styled(Link)`
 `
 
 //Individual blogs
-// export const TextArea = styled(TextareaAutosize)`
-//   && {
-//     padding: 0.5em;
-//     margin: 0.5em;
-//     width: 200px;
-//     height: 100px;
-//     color: #0b4f71;
-//     background: #ebf8ff;
-//     border: none;
-//     border-radius: 3px;
-//   }
-// `
-
+export const CommentContainer = styled.div`
+  height: 32px;
+  border-radius: 5px;
+  background-color: #f0f0f8;
+  padding: 10px 10px 0 10px;
+  width: 250px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-family: Ubuntu, sans-serif;
+  box-shadow: 8px 13px 18px rgba(7, 0, 37, 0.05);
+`
 export const TextAreaInput = styled.textarea`
   border: none;
   outline: none;
