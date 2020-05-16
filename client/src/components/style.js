@@ -7,10 +7,72 @@ createGlobalStyle`
       @import url('https://fonts.googleapis.com/css?family=Ubuntu');
   * {
       font-family: 'Ubuntu', sans-serif;
+      position: relative;
   }
-
 `
 
+//Login page
+export const CenteredBox = styled(Container)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: #0b4f71;
+  background: #ebf8ff;
+  border: none;
+  border-radius: 3px;
+`
+
+export const LoginInstructions = styled.div`
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #616e7c;
+`
+
+export const ActionButton = styled(Button)`
+  background-color: #57ae5b;
+  color: #fff;
+
+  &:hover {
+    background-color: #207227;
+  }
+`
+export const LoginButtonSpan = styled.span`
+  display: flex;
+  justify-content: center;
+`
+
+//Blog header
+export const BlogHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+//Add new blog
+export const BlogDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`
+
+export const CancelButton = styled(Button)`
+  margin-top: 0.5rem;
+`
+
+//Blog render on main page
 export const BlogContainer = styled.div`
   height: 32px;
   border-radius: 5px;

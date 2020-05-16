@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
+import { ActionButton } from "./style"
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -102,7 +103,7 @@ const Blog = props => {
               value={formComment}
               onChange={handleForm}
             />
-            <Button
+            <ActionButton
               variant="contained"
               color="primary"
               className={classes.button}
@@ -111,7 +112,7 @@ const Blog = props => {
               data-cy="commentbutton"
             >
               Add Comment
-            </Button>
+            </ActionButton>
           </form>
           <ul>
             {blog.comments.map(comment => (

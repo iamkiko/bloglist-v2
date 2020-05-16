@@ -7,7 +7,7 @@ const BlogOverview = ({ blog }) => {
       <div>
         <BlogContainer>
           <StyledLink to={`blogs/${blog.id}`}>
-            {blog.title} ({blog.author})
+            {blog.author} - {blog.title}
           </StyledLink>
         </BlogContainer>
       </div>
