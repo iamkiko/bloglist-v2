@@ -1,17 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
-import { ActionButton, Input } from "./style"
+import { CreateButton, Input } from "./style"
 
-const NewBlog = ({
-  author,
-  title,
-  url,
-  addBlog,
-  newBlogRef,
-  toggleVisibility,
-}) => {
+const NewBlog = ({ author, title, url, addBlog, newBlogRef }) => {
   return (
     <div>
       <Typography variant="h4" gutterBottom>
@@ -38,14 +30,14 @@ const NewBlog = ({
             <Input id="url" {...url} reset={null} />
           </Typography>
         </div>
-        <ActionButton
+        <CreateButton
           variant="contained"
           size="small"
           type="submit"
           data-cy="createblog"
         >
           Create
-        </ActionButton>
+        </CreateButton>
       </form>
     </div>
   )

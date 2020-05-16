@@ -42,6 +42,7 @@ export const LoginInstructions = styled.div`
 `
 
 export const ActionButton = styled(Button)`
+  margin-left: 2rem;
   background-color: #57ae5b;
   color: #fff;
 
@@ -60,12 +61,23 @@ export const BlogHeader = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 3rem;
 `
 //Add new blog
 export const BlogDiv = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  margin-left: 2rem;
+  /* justify-content: space-evenly; */
   width: 100%;
+`
+
+export const CreateButton = styled(Button)`
+  background-color: #57ae5b;
+  color: #fff;
+
+  &:hover {
+    background-color: #207227;
+  }
 `
 
 export const CancelButton = styled(Button)`
